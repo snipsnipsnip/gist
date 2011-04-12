@@ -36,6 +36,7 @@ module Gist
     gist_filename = nil
     gist_extension = defaults["extension"]
     browse_enabled = defaults["browse"]
+    list_enabled = false
 
     opts = OptionParser.new do |opts|
       opts.banner = "Usage: gist [options] [filename or stdin] [filename] ...\n" +
@@ -52,6 +53,10 @@ module Gist
 
       opts.on('-o','--[no-]open', 'Open gist in browser') do |o|
         browse_enabled = o
+      end
+
+      opts.on('-l', '--list', 'List your gists') do |o|
+        list_enabled = o
       end
 
       opts.on('-m', '--man', 'Print manual') do
